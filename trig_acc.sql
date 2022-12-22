@@ -1,0 +1,9 @@
+CREATE FUNCTION calc_hash() RETURNS TRIGGER LANGUAGE 'plpgsql' AS
+$$
+BEGIN
+  NEW.pass = md5(NEW.pass);
+  RETURN NEW;
+END
+$$;
+CREATE TRIGGER tg_hash BEFORE INSERT ON accs FOR EACH ROW EXECUTE PROCEDURE calc_hash();
+\df

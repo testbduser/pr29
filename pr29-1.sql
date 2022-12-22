@@ -1,0 +1,2 @@
+DROP DATABASE lab_trig;
+CREATE DATABASE lab_trig;

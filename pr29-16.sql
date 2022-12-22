@@ -1,0 +1,5 @@
+DROP TRIGGER tg_sum ON sums;
+\d sums
+CREATE TRIGGER tg_sum BEFORE INSERT OR UPDATE ON sums 
+FOR EACH ROW WHEN (NEW.a > 100) EXECUTE PROCEDURE calc_sum();
+\d sums
